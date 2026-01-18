@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="REGROUPE - Équipe d'esport d'élite. Joueurs professionnels, compétitions et gaming compétitif.">
+<title>REGROUPE - Elite Esport Team</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ================= RESET & VARIABLES ================= */
+:root {
+    --primary: #d147a3;
+    --primary-light: #e585c2;
+    --primary-dark: #b32d8b;
+    --secondary: #9d4edd;
+    --secondary-light: #bb86fc;
+    --secondary-dark: #7b2cbf;
+    --background: #0f0b15;
+    --surface: #1a1525;
+    --surface-light: #231d34;
+    --text: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --accent: #ff79c6;
+    --warning: #ffb86c;
+    --border: rgba(255, 255, 255, 0.05);
+    --success: #50fa7b;
+    --discord: #5865f2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ================= GLOBAL ================= */
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+}
+
+section {
+    padding: 100px 0;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    max-width: 600px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(209, 71, 163, 0.3);
+}
+
+.btn.discord {
+    background: var(--discord);
+}
+
+.btn.discord:hover {
+    background: #4752c4;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* ================= HEADER & NAVIGATION ================= */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(15, 11, 21, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: white;
+    text-transform: uppercase;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav li a {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    padding: 8px 0;
+    position: relative;
+}
+
+nav li a:hover {
+    color: white;
+}
+
+nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width 0.3s ease;
+}
+
+nav li a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* ================= HERO ================= */
+.hero {
+    min-height: 100vh;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(209, 71, 163, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(157, 78, 221, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, #0f0b15 0%, #1a1525 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 100px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(209, 71, 163, 0.15), transparent 70%);
+    top: -300px;
+    right: -300px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(157, 78, 221, 0.1), transparent 70%);
+    bottom: -200px;
+    left: -200px;
+    border-radius: 50%;
+}
+
+.hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    margin-bottom: 25px;
+    background: linear-gradient(90deg, #fff 0%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ================= PLAYERS ================= */
+#players {
+    background: #1a1525;
+    position: relative;
+}
+
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.player-card {
+    background: var(--surface);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+.player-card:hover {
+    transform: translateY(-10px);
+    background: var(--surface-light);
+    border-color: rgba(209, 71, 163, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.player-header {
+    padding: 30px 30px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.player-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    overflow: hidden;
+    position: relative;
+}
+
+.player-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.player-card:hover .player-avatar img {
+    transform: scale(1.1);
+}
+
+.player-avatar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(209, 71, 163, 0.3), transparent);
+    border-radius: 50%;
+}
+
+.player-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.player-role {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.player-status {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.status-pro {
+    background: rgba(209, 71, 163, 0.1);
+    color: var(--primary-light);
+    border: 1px solid rgba(209, 71, 163, 0.3);
+}
+
+.status-pending {
+    background: rgba(255, 184, 108, 0.1);
+    color: var(--warning);
+    border: 1px solid rgba(255, 184, 108, 0.3);
+}
+
+.player-body {
+    padding: 20px 30px;
+}
+
+.games-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.game-item {
+    background: rgba(209, 71, 163, 0.05);
+    border-radius: 8px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(209, 71, 163, 0.1);
+}
+
+.game-item:hover {
+    background: rgba(209, 71, 163, 0.1);
+    border-color: rgba(209, 71, 163, 0.3);
+}
+
+.game-name {
+    font-weight: 500;
+}
+
+.pro-badge {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ================= GAMES ================= */
+#games {
+    background: #0f0b15;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.game-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(209, 71, 163, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.game-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.game-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ================= ABOUT ================= */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text p {
+    margin-bottom: 25px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.about-stat {
+    text-align: center;
+    padding: 25px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.about-stat:hover {
+    border-color: rgba(209, 71, 163, 0.3);
+    transform: translateY(-5px);
+}
+
+.about-stat i {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 15px;
+}
+
+/* ================= DISCORD CTA ================= */
+.discord-cta {
+    background: linear-gradient(135deg, #1a1525 0%, #231d34 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.discord-cta::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(209, 71, 163, 0.2), transparent 70%);
+    top: -150px;
+    right: -150px;
+    border-radius: 50%;
+}
+
+.discord-cta::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(157, 78, 221, 0.1), transparent 70%);
+    bottom: -100px;
+    left: -100px;
+    border-radius: 50%;
+}
+
+.discord-cta .container {
+    position: relative;
+    z-index: 2;
+}
+
+.discord-cta h2 {
+    margin-bottom: 20px;
+}
+
+.discord-cta p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: #0a0810;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column h4 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--surface);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: translateY(-5px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ================= SCROLL ANIMATION ================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 11, 21, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        gap: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 999;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+        gap: 30px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .stat-item {
+        flex: 0 0 calc(50% - 15px);
+    }
+    
+    section {
+        padding: 80px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .players-grid,
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .stat-item {
+        flex: 0 0 100%;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">REGROUPE</div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul id="navMenu">
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#players">Joueurs</a></li>
+                <li><a href="#games">Jeux</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#discord">Rejoindre</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="hero-content reveal">
+            <h1>Gaming. Performance. Excellence.</h1>
+            <p>
+                Équipe de joueurs professionnels présente sur les plus grandes compétitions.
+                Notre objectif : dominer, performer et marquer l'histoire du gaming compétitif.
+            </p>
+            <div class="hero-buttons">
+                <a href="#players" class="btn">Découvrir l'équipe</a>
+                <a href="#discord" class="btn btn-outline">Rejoindre Discord</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item reveal">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Joueurs Pro</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Jeux Compétitifs</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Tournois</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Entraînement</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="players">
+    <div class="container">
+        <h2 class="reveal">Nos Joueurs</h2>
+        <p class="section-subtitle reveal">Découvrez nos joueurs professionnels, spécialistes dans leurs disciplines respectives.</p>
+        
+        <div class="players-grid">
+            <div class="player-card reveal">
+                <div class="player-header">
+                    <div class="player-avatar">
+                        <img src="https://cdn.discordapp.com/avatars/1020293206275006467/a2a3ce6e78648e7be5e22c130faf07b6.png?size=1024" alt="Arena">
+                    </div>
+                    <h3>Arena</h3>
+                    <div class="player-role">Spécialiste Rocket League</div>
+                    <div class="player-status status-pro">Professionnel</div>
+                </div>
+                <div class="player-body">
+                    <div class="games-list">
+                        <div class="game-item">
+                            <span class="game-name">Rocket League</span>
+                            <span class="pro-badge">PRO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-card reveal">
+                <div class="player-header">
+                    <div class="player-avatar">
+                        <img src="https://cdn.discordapp.com/avatars/955131632581500938/8b0ec47c6717c95256fdf69a885ccce3.png?size=1024" alt="Miguel">
+                    </div>
+                    <h3>Miguel</h3>
+                    <div class="player-role">Multi-gaming</div>
+                    <div class="player-status status-pro">Professionnel</div>
+                </div>
+                <div class="player-body">
+                    <div class="games-list">
+                        <div class="game-item">
+                            <span class="game-name">Valorant</span>
+                            <span class="pro-badge">PRO</span>
+                        </div>
+                        <div class="game-item">
+                            <span class="game-name">CP FiveM</span>
+                            <span class="pro-badge">PRO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-card reveal">
+                <div class="player-header">
+                    <div class="player-avatar">
+                        <img src="https://cdn.discordapp.com/avatars/639645226377412666/a_aa2892becb77d1b253a7e54a13a0e8cf.gif?size=1024" alt="Billal">
+                    </div>
+                    <h3>Billal</h3>
+                    <div class="player-role">Multi-gaming</div>
+                    <div class="player-status status-pro">Professionnel</div>
+                </div>
+                <div class="player-body">
+                    <div class="games-list">
+                        <div class="game-item">
+                            <span class="game-name">Valorant</span>
+                            <span class="pro-badge">PRO</span>
+                        </div>
+                        <div class="game-item">
+                            <span class="game-name">CP FiveM</span>
+                            <span class="pro-badge">PRO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-card reveal">
+                <div class="player-header">
+                    <div class="player-avatar">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold;">M</div>
+                    </div>
+                    <h3>Momo</h3>
+                    <div class="player-role">Spécialiste Valorant</div>
+                    <div class="player-status status-pro">Professionnel</div>
+                </div>
+                <div class="player-body">
+                    <div class="games-list">
+                        <div class="game-item">
+                            <span class="game-name">Valorant</span>
+                            <span class="pro-badge">PRO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-card reveal">
+                <div class="player-header">
+                    <div class="player-avatar">
+                        <img src="https://cdn.discordapp.com/avatars/1443700860583411817/c256b0f046fea6a8053f9e53bbf5bc9a.png?size=1024" alt="Younes">
+                    </div>
+                    <h3>Younes</h3>
+                    <div class="player-role">Nouveau talent</div>
+                    <div class="player-status status-pending">En recrutement</div>
+                </div>
+                <div class="player-body">
+                    <div class="games-list">
+                        <div class="game-item">
+                            <span class="game-name">Bientôt annoncé...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="games">
+    <div class="container">
+        <h2 class="reveal">Nos Jeux</h2>
+        <p class="section-subtitle reveal">Nous excellons dans ces jeux compétitifs à travers nos différentes divisions.</p>
+        
+        <div class="games-grid">
+            <div class="game-card reveal">
+                <div class="game-icon">
+                    <i class="fas fa-car" style="color: var(--primary-light);"></i>
+                </div>
+                <h3>Rocket League</h3>
+                <p class="game-description">Football futuriste avec des voitures propulsées par fusée. Compétitions à haut niveau avec stratégie et précision.</p>
+            </div>
+            
+            <div class="game-card reveal">
+                <div class="game-icon">
+                    <i class="fas fa-crosshairs" style="color: #ff79c6;"></i>
+                </div>
+                <h3>Valorant</h3>
+                <p class="game-description">FPS tactique développé par Riot Games. Combinaison d'habileté individuelle et de stratégie d'équipe.</p>
+            </div>
+            
+            <div class="game-card reveal">
+                <div class="game-icon">
+                    <i class="fas fa-city" style="color: var(--secondary-light);"></i>
+                </div>
+                <h3>CP FiveM</h3>
+                <p class="game-description">Jeu de rôle sur serveur FiveM. Stratégie, coordination et immersion dans un environnement compétitif.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="reveal">À propos</h2>
+        <div class="about-content">
+            <div class="about-text reveal">
+                <p>Fondée pour repousser les limites de la compétition esport, REGROUPE rassemble des joueurs talentueux et passionnés animés par une même mentalité : l'excellence et la performance.</p>
+                <p>Notre structure s'appuie sur un coaching personnalisé, des analyses approfondies et un entraînement rigoureux pour optimiser le potentiel de chaque joueur.</p>
+                <p>Ensemble, nous visons les sommets du gaming compétitif et travaillons à établir une dynastie dans l'esport français et international.</p>
+            </div>
+            <div class="about-stats reveal">
+                <div class="about-stat">
+                    <i class="fas fa-trophy"></i>
+                    <h4>Victoires</h4>
+                    <p>15+ Tournois</p>
+                </div>
+                <div class="about-stat">
+                    <i class="fas fa-users"></i>
+                    <h4>Communauté</h4>
+                    <p>500+ Membres</p>
+                </div>
+                <div class="about-stat">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h4>Activité</h4>
+                    <p>7j/7 24h/24</p>
+                </div>
+                <div class="about-stat">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Croissance</h4>
+                    <p>+30% en 2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="discord-cta" id="discord">
+    <div class="container">
+        <div class="reveal">
+            <h2>Rejoins l'Aventure</h2>
+            <p>Intègre notre communauté Discord, suis nos actualités, participe aux événements et deviens membre de notre famille esport.</p>
+            <a href="#" class="btn discord">
+                <i class="fab fa-discord" style="margin-right: 10px;"></i> Rejoindre Discord
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>REGROUPE</h4>
+                <p>Équipe esport d'élite compétitive sur les plus grandes scènes internationales.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitch"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#players">Joueurs</a></li>
+                    <li><a href="#games">Jeux</a></li>
+                    <li><a href="#about">À propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Équipe</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Recrutement</a></li>
+                    <li><a href="#">Sponsors</a></li>
+                    <li><a href="#">Partenariats</a></li>
+                    <li><a href="#">Presse</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:contact@regroupe-esport.com">contact@regroupe-esport.com</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Demande partenaire</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 - REGROUPE Esport Team. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+/* ===== MENU TOGGLE ===== */
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuToggle.innerHTML = navMenu.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+});
+
+// Fermer le menu en cliquant sur un lien
+document.querySelectorAll('#navMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
+
+/* ===== SCROLL REVEAL ===== */
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll() {
+    reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const elementVisible = 100;
+        
+        if (elementTop < windowHeight - elementVisible) {
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll(); // Initial check
+
+/* ===== HEADER SCROLL EFFECT ===== */
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.style.padding = '0';
+        header.style.backdropFilter = 'blur(15px)';
+    } else {
+        header.style.padding = '';
+        header.style.backdropFilter = 'blur(10px)';
+    }
+});
+
+/* ===== SMOOTH SCROLL ===== */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+/* ===== ANIMATE STATS ===== */
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.textContent);
+        let current = 0;
+        const increment = target / 50;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
+        }, 30);
+    });
+}
+
+// Déclencher l'animation des stats quand la section hero est visible
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateStats();
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const heroSection = document.querySelector('.hero');
+if (heroSection) observer.observe(heroSection);
+</script>
+
+</body>
+</html>
